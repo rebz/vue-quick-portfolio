@@ -13,8 +13,8 @@ More to come... still rough for now
 
 Create folders under `./public/portfolio/`. For each folder created, a nav item will be generated. Node will look inside each folder for the following structure:
 ```
-public/
-    portfolio/
+portfolio/
+    your-project-item-name/
         content.md
         gifs/
             # in progress
