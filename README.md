@@ -42,3 +42,4 @@ With little-to-no time to update a portfolio site, I wanted the ability to drop 
 - Read any file types and understand what to parse them under
 - Cache data instead of performing an API request for each route change
 - Apply styles and attributes to specific portfolio item assets based off modifiers in filename
+- Remove Laravel-Mix and go straight to webpack so we can properly use Dynamic Imports to lazy load routes and components (currently an issue specific to laravel mix that prevents CSS from being rendered when using `.extract()`)
