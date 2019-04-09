@@ -3,7 +3,7 @@ More to come... still rough for now
 
 # How to install
 
-1. `nvm use` - If you have NVM installed, it will ready the `.nvmrc` file and switch to Node 10.15
+1. `nvm use` - If you have NVM installed it will read the `.nvmrc` file in the root directory and switch to Node 10.15
 1. `npm i`
 1. `npm i -g pm2` - If you do not have PM2 installed, this is meant to run the Node server
 1. `npm run dev` || `npm run prod`
