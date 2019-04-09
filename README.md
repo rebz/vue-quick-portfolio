@@ -9,6 +9,18 @@ More to come... still rough for now
 1. `npm run dev` || `npm run prod`
 1. `pm2 start --name portfolio resources/node/server.js` - Will start the Node server
 
+## Adding Portfolio Items and Content
+
+Create folders under `./public/portfolio/`. For each folder created, a nav item will be generated. Node will look inside each folder for the following structure:
+```
+public/
+    portfolio/
+        content.md
+        gifs/
+        videos/*.mp4
+        images/  
+```
+
 # What is this repo?
 
 Generate a simple portfolio site through folder and assets alone. 
