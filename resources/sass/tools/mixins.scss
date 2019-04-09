@@ -1,0 +1,68 @@
+@function calculateRem($size) {
+    $remSize: $size / 10px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: $size; // fallback for browsers that do not support rem sizing
+    font-size: calculateRem($size);
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin placeholder($color) {
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color:    $color;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:    $color;
+        opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color:    $color;
+        opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color:    $color;
+    }
+}
+
+@mixin phone() {
+    @media screen and (max-width: $phone) {
+        @content
+    }
+}
+
+@mixin mobile() {
+    @media screen and (max-width: $mobile) {
+        @content
+    }
+}
+
+@mixin tablet() {
+    @media screen and (max-width: $tablet) {
+        @content
+    }
+}
+
+@mixin desktop() {
+    @media screen and (min-width: $desktop) {
+        @content
+    }
+}

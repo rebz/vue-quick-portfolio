@@ -1,0 +1,42 @@
+.Portfolio {
+
+    &__title {
+        @include font-size(48px);
+    }
+
+    &__nav {
+        display: flex;
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            padding: 0 16px;
+            height: 36px;
+            border-radius: 32px;
+            background: #fff;
+            color: #000;
+            margin-left: 8px;
+            @include font-size(14px);
+
+            &:hover {
+                text-decoration: underline;
+                color: $primary-color;
+            }
+
+            &.active {
+                background: $primary-color;
+                color: #fff;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__con {
+        margin-top: 24px;
+    }
+}

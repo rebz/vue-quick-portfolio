@@ -1,0 +1,24 @@
+.Navigation {
+    display: flex;
+
+    a {
+        display: flex;
+        flex: 1 auto;
+        padding: 0 8px;
+        color: #afbfcb;
+        text-decoration: none;
+        @include font-size(14px);
+        height: 64px;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            color: $font__base-anchor-hover-color;
+            text-decoration: underline;
+        }
+
+        &.active {
+            color: #697589;
+        }
+    }
+}
