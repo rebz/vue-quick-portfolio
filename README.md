@@ -13,15 +13,17 @@ More to come... still rough for now
 
 Create folders under `./public/portfolio/`. For each folder created, a nav item will be generated. Node will look inside each folder for the following structure:
 ```
-portfolio/
-    your-project-item-name/
-        content.md
-        gifs/
-            # in progress
-        videos/
-            *.mp4
-        images/  
-            # in progress
+root
+├── public/
+│   └── portfolio/
+│       └── create-your-portfolio-item-folder-here/
+│           └── content.md
+│           └── gifs/
+│               └── # in progress
+│           └── videos/
+│               └── *.mp4
+│           └── images/  
+│               └── # in progress
 ```
 
 # What is this repo?
@@ -33,8 +35,6 @@ Generate a simple portfolio site through folder and assets alone.
 
 ### Why did I create this?
 With little-to-no time to update a portfolio site, I wanted the ability to drop some assets and a markdown file into a public directory via SFTP and have my portfolio update.
-
-
 
 ## TODO
 - Ignore pre-defined folder structure, use any folder names to create sub-nav.
