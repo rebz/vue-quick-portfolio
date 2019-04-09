@@ -31,7 +31,7 @@ root
 Generate a simple portfolio site through folder and assets alone. 
 
 ### How does it work?
-...
+Node returns an array of names based off of folders under `./public/portfolio` to generate the main nav. The same is being applied to content under each portfolio item, Node reads the content and returns a list.
 
 ### Why did I create this?
 With little-to-no time to update a portfolio site, I wanted the ability to drop some assets and a markdown file into a public directory via SFTP and have my portfolio update.
