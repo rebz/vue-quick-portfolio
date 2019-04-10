@@ -19,14 +19,17 @@
         align-items: center;
         position: relative;
         z-index: 5;
+        transition: flex 300ms $animate__cubic-bezier, font-size 500ms $animate__cubic-bezier--leave;
 
         &:hover {
             color: $font__base-anchor-hover-color;
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         &.active {
             color: $grey-dark;
+            flex: 10 auto;
+            @include font-size(20px);
         }
     }
 }
