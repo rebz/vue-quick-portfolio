@@ -13,7 +13,9 @@
 
         <template v-if="!showMarkdown">
 
-            <router-view class="Portfolio__con"></router-view>
+            <keep-alive>
+                <router-view class="Portfolio__con"></router-view>
+            </keep-alive>
 
         </template>
 
