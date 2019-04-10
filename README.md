@@ -2,16 +2,16 @@
 More to come... still rough for now 
 
 # How to install
-
-1. `nvm use` - If you have NVM installed it will read the `.nvmrc` file in the root directory and switch to Node 10.15
+1. `nvm use` - If NVM is installed it will read `.nvmrc` in the root directory and switch to Node 10.15
 1. `npm i`
-1. `npm i -g pm2` - If you do not have PM2 installed, this is meant to run the Node server
-1. `npm run dev` || `npm run prod`
-1. `pm2 start --name portfolio resources/node/server.js` - Will start the Node server
+1. `cp .env.example .env` - Copy ENV Example to `.env`
+1. Edit `.env` to match your environment
+1. `npm run dev` || `npm run prod` 
+1. (optional) `npm i -g pm2` - Installs PM2 globally, use to manage `resources/node/server.js`
+1. (run server.js, optional) `pm2 start --name portfolio resources/node/server.js` - Will start the Node server
 
 ## Adding Portfolio Items and Content
-
-Create folders under `./public/portfolio/`. For each folder created, a nav item will be generated. Node will look inside each folder for the following structure:
+Create folders under `public/portfolio/`. For each folder created, a nav item will be generated. Node will look inside each folder for the following structure:
 ```
 root
 ├── public/
@@ -24,10 +24,10 @@ root
 │               └── *.mp4
 │           └── images/  
 │               └── # in progress
+├── resources/
 ```
 
 # What is this repo?
-
 Generate a simple portfolio site through folder and assets alone. 
 
 ### How does it work?
