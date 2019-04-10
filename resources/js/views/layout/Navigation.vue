@@ -1,14 +1,22 @@
 <template>
 
-    <nav class="Navigation">
+    <div class="Navigation">
 
-        <router-link :to="{name: 'home'}" exact>home</router-link>
+        <transition name="nav-slide" appear>
 
-        <template v-if="nav.length">
-            <router-link v-for="(page, index) in nav" :key="`${index}-${page}`" :to="{name: 'portfolio', params: {category: page}}">{{ page }}</router-link>
-        </template>
+            <nav>
 
-    </nav>
+                <router-link :to="{name: 'home'}" exact>home</router-link>
+
+                <template v-if="nav.length">
+                    <router-link v-for="(page, index) in nav" :key="`${index}-${page}`" :to="{name: 'portfolio', params: {category: page}}">{{ page }}</router-link>
+                </template>
+
+            </nav>
+
+        </transition>
+
+    </div>
 
 </template>
 

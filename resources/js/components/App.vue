@@ -4,7 +4,9 @@
 
         <navigation></navigation>
 
-        <router-view class="Container__con"></router-view>
+        <keep-alive>
+            <router-view class="Container__con"></router-view>
+        </keep-alive>
 
     </div>
 

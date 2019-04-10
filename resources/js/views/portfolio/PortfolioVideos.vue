@@ -24,13 +24,16 @@
 
 <script>
     import portfolio from '@api/portfolio'
+    import {portfolioMixins} from '@mixins/portfolio'
 
     export default {
 
+        mixins: [portfolioMixins],
+
         mounted() {
             window.addEventListener('keyup', (event) => {
-                event.keyCode == 37 && this.prevVideo() // left arrow
-                event.keyCode == 39 && this.nextVideo() // right arrow
+                event.keyCode === 37 && this.prevVideo() // left arrow
+                event.keyCode === 39 && this.nextVideo() // right arrow
             })
         },
 
@@ -46,10 +49,12 @@
                 immediate: true,
                 deep: true,
                 handler: function() {
-                    this.getSources().then(() => {
-                        this.setVideo(0)
-                        this.loadVideo()
-                    })
+                    if(!this.isHome) {
+                        this.getSources().then(() => {
+                            this.setVideo(0)
+                            this.loadVideo()
+                        })
+                    }
                 }
             },
             video: {
@@ -66,7 +71,7 @@
             },
             getSources() {
                 return new Promise((resolve, reject) => {
-                    portfolio.get(`/portfolio/videos/${this.$route.params.category}`).then(response => {
+                    portfolio.get(`/portfolio/videos/${this.category}`).then(response => {
                         this.sources = response.data
                         resolve(response)
 

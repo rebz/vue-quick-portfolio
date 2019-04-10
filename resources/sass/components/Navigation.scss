@@ -1,16 +1,24 @@
 .Navigation {
-    display: flex;
+
+    nav {
+        display: flex;
+        position: relative;
+        z-index: 5;
+        width: 100%;
+    }
 
     a {
         display: flex;
         flex: 1 auto;
         padding: 0 8px;
-        color: #afbfcb;
+        color: $grey-light;
         text-decoration: none;
         @include font-size(14px);
         height: 64px;
         justify-content: center;
         align-items: center;
+        position: relative;
+        z-index: 5;
 
         &:hover {
             color: $font__base-anchor-hover-color;
@@ -18,7 +26,61 @@
         }
 
         &.active {
-            color: #697589;
+            color: $grey-dark;
         }
+    }
+}
+
+.nav-slide-enter-active {
+    animation: subnav-shadow 2s linear;
+
+    a {
+        transform: translateY(-100px);
+        animation: subnav-enter .3s $animate__cubic-bezier--enter;
+        animation-fill-mode: forwards;
+
+        @for $i from 0 through $navItems {
+            &:nth-child(#{$i}n) {
+                $delay: $i / $navItems + .15;
+                animation-delay: #{$delay}s;
+            }
+        }
+    }
+}
+
+.nav-slide-leave-active {
+    animation: subnav-shadow 2s linear;
+
+    a {
+        animation: subnav-leave .3s $animate__cubic-bezier--leave;
+        animation-fill-mode: forwards;
+
+        @for $i from 0 through $navItems {
+            &:nth-child(#{$i}n) {
+                $delay: $i / $navItems;
+                animation-delay: #{$delay}s;
+            }
+        }
+    }
+}
+
+
+@include keyframes(subnav-enter) {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@include keyframes(subnav-leave) {
+    0% {
+        //opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        //opacity: 0;
+        transform: translateY(100px);
     }
 }
