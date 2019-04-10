@@ -1,13 +1,12 @@
 'use strict';
 
-const base_path = __dirname.replace('resources/node/controllers', '')
+// const base_path = __dirname.replace('resources/node/controllers', '')
 const result = require('dotenv').config({
-    path: base_path + '.env'
+    path: './.env'
 })
 const env = result.parsed
 
 const fs = require('fs');
-// import * as fs from 'fs'
 
 let showdown  = require('showdown'),
     converter = new showdown.Converter();
@@ -17,7 +16,7 @@ function checkCategory(req, res) {
 }
 
 exports.getNav = (req, res) => {
-    return res.json(fs.readdirSync('./public/portfolio/'))
+    return res.json(fs.readdirSync('./public/portfolio/').filter(i => !(i.indexOf('.') > -1)))
 };
 
 exports.getVideos = (req, res) => {
