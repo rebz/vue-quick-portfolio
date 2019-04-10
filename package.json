@@ -1,8 +1,8 @@
 {
-    "name": "vue-clean-slate",
-    "version": "1.0.1",
-    "description": "Personal starter template for Vue projects",
-    "main": "index.js",
+    "name": "vue-quick-portfolio",
+    "version": "0.0.1",
+    "description": "Generate a portfolio by tossing assets and markdown files into a public folder.",
+    "main": "resources/js/app.js",
     "scripts": {
         "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -10,7 +10,7 @@
         "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "author": "Chris Johnson <chris@rebzmedia.com>",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.17",
         "@fortawesome/pro-light-svg-icons": "^5.8.1",
