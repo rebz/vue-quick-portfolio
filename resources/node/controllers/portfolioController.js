@@ -1,15 +1,9 @@
 'use strict';
-
-// const base_path = __dirname.replace('resources/node/controllers', '')
-const result = require('dotenv').config({
-    path: './.env'
-})
-const env = result.parsed
-
-const fs = require('fs');
-
-let showdown  = require('showdown'),
-    converter = new showdown.Converter();
+const result = require('dotenv').config({path: './.env'})
+const env = result.parsed,
+      fs = require('fs'),
+      showdown  = require('showdown'),
+      converter = new showdown.Converter();
 
 function checkCategory(req, res) {
     return !req.params.category ? res.status(400).send({text: 'You did not specify a category.', error: null}) : true
@@ -18,6 +12,10 @@ function checkCategory(req, res) {
 exports.getNav = (req, res) => {
     return res.json(fs.readdirSync('./public/portfolio/').filter(i => !(i.indexOf('.') > -1)))
 };
+
+// TODO - Convert (getVideos, getMarkdown) to function
+//        that returns items from directory, look at
+//        params to determine folder.
 
 exports.getVideos = (req, res) => {
 
@@ -41,6 +39,7 @@ exports.getMarkdown = (req, res) => {
 
     if (checkCategory(req, res)) {
 
+        // TODO - get all *.md files
         const markdownFile = `./public/portfolio/${req.params.category}/content.md`;
 
         if (!fs.existsSync(markdownFile)) {
