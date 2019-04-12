@@ -1,5 +1,9 @@
 .Portfolio {
 
+    &__con {
+        position: relative;
+    }
+
     &__title {
         @include font-size(48px);
     }
@@ -36,7 +40,7 @@
         }
     }
 
-    &__con {
+    &__view {
         margin-top: 24px;
     }
 }

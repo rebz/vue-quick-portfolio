@@ -2,28 +2,32 @@
 
     <div class="Portfolio">
 
-        <h1 class="Portfolio__title">{{ category }}</h1>
+        <div class="Portfolio__con">
 
-        <nav class="Portfolio__nav">
-            <router-link :to="{name: 'portfolio', params: {category: category}}" exact>Content</router-link>
-            <router-link :to="{name: 'videos', params: {category: category}}">Videos</router-link>
-            <router-link :to="{name: 'gifs', params: {category: category}}">Gifs</router-link>
-            <router-link :to="{name: 'images', params: {category: category}}">Images</router-link>
-        </nav>
+            <h1 class="Portfolio__title">{{ category }}</h1>
 
-        <template v-if="!showMarkdown">
+            <nav class="Portfolio__nav">
+                <router-link :to="{name: 'portfolio', params: {category: category}}" exact>Content</router-link>
+                <router-link :to="{name: 'videos', params: {category: category}}">Videos</router-link>
+                <router-link :to="{name: 'gifs', params: {category: category}}">Gifs</router-link>
+                <router-link :to="{name: 'images', params: {category: category}}">Images</router-link>
+            </nav>
 
-            <keep-alive>
-                <router-view class="Portfolio__con"></router-view>
-            </keep-alive>
+            <template v-if="!showMarkdown">
 
-        </template>
+                <keep-alive>
+                    <router-view class="Portfolio__view"></router-view>
+                </keep-alive>
 
-        <template v-else-if="bodyCopy">
+            </template>
 
-            <div v-html="bodyCopy"></div>
+            <template v-else-if="bodyCopy">
 
-        </template>
+                <div v-html="bodyCopy"></div>
+
+            </template>
+
+        </div>
 
     </div>
 

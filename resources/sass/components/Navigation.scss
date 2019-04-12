@@ -28,8 +28,6 @@
 
         &.active {
             color: $grey-dark;
-            flex: 10 auto;
-            @include font-size(20px);
         }
     }
 }

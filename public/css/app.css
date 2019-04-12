@@ -41,6 +41,89 @@
  */
 
 /*
+ * Slide
+ */
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+
+.slide-left-enter-active,
+.slide-right-enter-active {
+  transition: opacity 500ms cubic-bezier(0.24, 0.41, 0.22, 1.04), -webkit-transform 300ms cubic-bezier(0.24, 0.41, 0.22, 1.04);
+  transition: transform 300ms cubic-bezier(0.24, 0.41, 0.22, 1.04), opacity 500ms cubic-bezier(0.24, 0.41, 0.22, 1.04);
+  transition: transform 300ms cubic-bezier(0.24, 0.41, 0.22, 1.04), opacity 500ms cubic-bezier(0.24, 0.41, 0.22, 1.04), -webkit-transform 300ms cubic-bezier(0.24, 0.41, 0.22, 1.04);
+}
+
+.slide-left-leave-active,
+.slide-right-leave-active {
+  transition: opacity 200ms cubic-bezier(0.66, 0.01, 0.84, 0.19), -webkit-transform 300ms cubic-bezier(0.66, 0.01, 0.84, 0.19);
+  transition: transform 300ms cubic-bezier(0.66, 0.01, 0.84, 0.19), opacity 200ms cubic-bezier(0.66, 0.01, 0.84, 0.19);
+  transition: transform 300ms cubic-bezier(0.66, 0.01, 0.84, 0.19), opacity 200ms cubic-bezier(0.66, 0.01, 0.84, 0.19), -webkit-transform 300ms cubic-bezier(0.66, 0.01, 0.84, 0.19);
+}
+
+/*
+ * Slide Left
+ */
+
+.slide-left-enter-active:nth-child(2),
+.slide-left-leave-active:nth-child(2) {
+  transition-delay: 150ms;
+}
+
+.slide-left-enter {
+  opacity: 0;
+  -webkit-transform: translateX(100px);
+          transform: translateX(100px);
+}
+
+.slide-left-enter-to,
+.slide-left-leave {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-left-leave-to {
+  -webkit-transform: translateX(-100px);
+          transform: translateX(-100px);
+  opacity: 0;
+}
+
+/*
+ * Slide Right
+ */
+
+.slide-right-enter-active:nth-child(2),
+.slide-right-leave-active:nth-child(2) {
+  transition-delay: 150ms;
+}
+
+.slide-right-enter {
+  opacity: 0;
+  -webkit-transform: translateX(-100px);
+          transform: translateX(-100px);
+}
+
+.slide-right-enter-to,
+.slide-right-leave {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-right-leave-to {
+  -webkit-transform: translateX(100px);
+          transform: translateX(100px);
+  opacity: 0;
+}
+
+/*
  *  NProgress Bar Colors
  */
 
@@ -605,6 +688,10 @@ hr {
  *  are often composed of Objects and Components.
  */
 
+.Container__con {
+  position: relative;
+}
+
 .Navigation nav {
   display: flex;
   position: relative;
@@ -625,7 +712,7 @@ hr {
   align-items: center;
   position: relative;
   z-index: 5;
-  transition: flex 300ms cubic-bezier(0.82, 0.01, 0.32, 1), font-size 500ms cubic-bezier(0.83, -0.34, 0.19, 1.23);
+  transition: flex 300ms cubic-bezier(0.82, 0.01, 0.32, 1), font-size 500ms cubic-bezier(0.66, 0.01, 0.84, 0.19);
 }
 
 .Navigation a:hover {
@@ -635,9 +722,6 @@ hr {
 
 .Navigation a.active {
   color: #697589;
-  flex: 10 auto;
-  font-size: 20px;
-  font-size: 2rem;
 }
 
 .nav-slide-enter-active {
@@ -648,8 +732,8 @@ hr {
 .nav-slide-enter-active a {
   -webkit-transform: translateY(-100px);
           transform: translateY(-100px);
-  -webkit-animation: subnav-enter 0.3s cubic-bezier(0.71, 0.52, 0.22, 1.04);
-          animation: subnav-enter 0.3s cubic-bezier(0.71, 0.52, 0.22, 1.04);
+  -webkit-animation: subnav-enter 0.3s cubic-bezier(0.24, 0.41, 0.22, 1.04);
+          animation: subnav-enter 0.3s cubic-bezier(0.24, 0.41, 0.22, 1.04);
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -815,8 +899,8 @@ hr {
 }
 
 .nav-slide-leave-active a {
-  -webkit-animation: subnav-leave 0.3s cubic-bezier(0.83, -0.34, 0.19, 1.23);
-          animation: subnav-leave 0.3s cubic-bezier(0.83, -0.34, 0.19, 1.23);
+  -webkit-animation: subnav-leave 0.3s cubic-bezier(0.66, 0.01, 0.84, 0.19);
+          animation: subnav-leave 0.3s cubic-bezier(0.66, 0.01, 0.84, 0.19);
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -1050,6 +1134,10 @@ hr {
   color: #fff;
 }
 
+.Portfolio__con {
+  position: relative;
+}
+
 .Portfolio__title {
   font-size: 48px;
   font-size: 4.8rem;
@@ -1088,7 +1176,7 @@ hr {
   margin-left: 0;
 }
 
-.Portfolio__con {
+.Portfolio__view {
   margin-top: 24px;
 }
 
