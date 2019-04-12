@@ -2,20 +2,24 @@
 
     <div class="Videos">
 
-        <LazyVideo :src="videos[video]" ref="video" class="Video" />
+        <div class="Videos__con" v-show="videos[video]">
 
-        <button @click="prevVideo">
-            Previous
-        </button>
+            <LazyVideo :src="videos[video]" ref="video" class="Video" />
 
-        <button @click="nextVideo">
-            Next
-        </button>
-
-        <div class="VideoList">
-            <button v-for="(v, index) in videoList" @click="setVideo(index)" :class="{ 'active' : index == video }">
-                {{ v }}
+            <button @click="stepVideo(-1)">
+                Previous
             </button>
+
+            <button @click="stepVideo(+1)">
+                Next
+            </button>
+
+            <div class="VideoList">
+                <button v-for="(v, index) in videoList" @click="setVideo(index)" :class="{ 'active' : index == video }">
+                    {{ v }}
+                </button>
+            </div>
+
         </div>
 
     </div>
@@ -24,17 +28,18 @@
 
 <script>
     import portfolio from '@api/portfolio'
-    import {portfolioMixins} from '@mixins/portfolio'
+    import { portfolioMixins } from '@mixins/portfolio'
 
     export default {
 
         mixins: [portfolioMixins],
 
         mounted() {
-            window.addEventListener('keyup', (event) => {
-                event.keyCode === 37 && this.prevVideo() // left arrow
-                event.keyCode === 39 && this.nextVideo() // right arrow
-            })
+            window.addEventListener('keyup', this.keyVideo)
+        },
+
+        beforeDestroy() {
+            window.removeEventListener('keyup', this.keyVideo)
         },
 
         data() {
@@ -66,9 +71,6 @@
         },
 
         methods: {
-            loadVideo() {
-                this.$refs['video'].$el.load()
-            },
             getSources() {
                 return new Promise((resolve, reject) => {
                     portfolio.get(`/portfolio/videos/${this.category}`).then(response => {
@@ -80,17 +82,20 @@
                     })
                 })
             },
+            loadVideo() {
+                this.$refs['video'].$el.load()
+            },
             setVideo(i) {
                 this.video = i
             },
-            prevVideo() {
-                let newVideo = this.video-1
-                this.video = newVideo >= 0 ? newVideo : (this.videos.length-1)
-
+            stepVideo(dir) {
+                const newStep = this.video + dir
+                const length = this.videos.length-1
+                this.video = newStep > length ? 0 : newStep < 0 ? length : newStep
             },
-            nextVideo() {
-                let newVideo = this.video+1
-                this.video = newVideo <= (this.videos.length-1) ? newVideo : 0
+            keyVideo(event) {
+                event.keyCode === 37 && this.stepVideo(-1) // left arrow
+                event.keyCode === 39 && this.stepVideo(+1) // right arrow
             }
         },
 

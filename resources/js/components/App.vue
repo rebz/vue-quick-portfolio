@@ -6,8 +6,8 @@
 
         <div class="Container__con">
 
-            <transition :name="transitionName">
-                <router-view class="Container__view" :key="$route.params.category || 'home'"></router-view>
+            <transition :name="transitionName" >
+                <router-view class="Container__view" :key="key"></router-view>
             </transition>
 
         </div>
@@ -47,6 +47,13 @@
                     const fromIndex = nav.indexOf(from.params.category)
                     this.transitionName = toIndex < fromIndex ? 'slide-right' : 'slide-left'
                 }
+            }
+        },
+        computed: {
+            key() {
+                return this.$route.params.category !== undefined
+                    ? this.$route.params.category
+                    : this.$route.name
             }
         }
     }
