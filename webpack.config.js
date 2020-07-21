@@ -8,6 +8,7 @@ module.exports = {
             '@': path.join(__dirname, 'resources/js'),
             '@api' : path.join(__dirname, 'resources/js/api'),
             '@components' : path.join(__dirname, 'resources/js/components'),
+            '@helpers' : path.join(__dirname, 'resources/js/helpers'),
             '@mixins' : path.join(__dirname, 'resources/js/mixins'),
             '@router' : path.join(__dirname, 'resources/js/router'),
             '@store': path.join(__dirname, 'resources/js/store'),
