@@ -23,7 +23,7 @@
         "file-system": "^2.2.2",
         "http": "0.0.0",
         "https": "^1.0.0",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.19",
         "nprogress": "^0.2.0",
         "showdown": "^1.9.0",
         "vue": "^2.6.10",
