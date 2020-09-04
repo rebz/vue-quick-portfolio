@@ -25,7 +25,7 @@
         "https": "^1.0.0",
         "lodash": "^4.17.11",
         "nprogress": "^0.2.0",
-        "showdown": "^1.9.0",
+        "showdown": "^1.9.1",
         "vue": "^2.6.10",
         "vue-lazyload": "^1.2.6",
         "vue-lazyload-video": "^0.1.14",
