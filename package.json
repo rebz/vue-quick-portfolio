@@ -19,7 +19,7 @@
         "@fortawesome/vue-fontawesome": "^0.1.6",
         "axios": "^0.18.0",
         "cors": "^2.8.5",
-        "express": "^4.16.4",
+        "express": "^4.17.3",
         "file-system": "^2.2.2",
         "http": "0.0.0",
         "https": "^1.0.0",
